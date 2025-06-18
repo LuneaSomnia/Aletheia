@@ -1,0 +1,44 @@
+/* main.css */
+/* :root variables, body, background-overlay, .custom-btn, .logo-title, etc. are IDENTICAL to the CSS from the UserAccountCanister response. */
+/* Just copy the CSS from that file. */
+
+/* New styles specific to this submission form */
+.submission-form {
+    background: rgba(0,0,0,0.2);
+    padding: 2rem;
+    border: 1px solid var(--glass-border); /* Using glass-border for consistency */
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: 5px;
+    color: var(--cream);
+    font-size: 1rem;
+    box-sizing: border-box; /* Important for consistent sizing */
+}
+select {
+    cursor: pointer;
+}
+textarea { resize: vertical; }
+
+.status-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    min-height: 1.2rem;
+    text-align: center;
+}

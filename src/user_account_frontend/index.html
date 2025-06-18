@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aletheia - User Dashboard</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <div class="background-overlay"></div>
+    <div class="icon-layer">
+        <div class="bg-icon torch"></div>
+        <div class="bg-icon scales"></div>
+        <div class="bg-icon magnifying-glass"></div>
+        <div class="bg-icon computer"></div>
+    </div>
+
+    <main class="container">
+        <section id="login-view">
+            <div class="login-box">
+                <h1 class="logo-title">ALETHEIA</h1>
+                <p class="tagline">Debunking Misinformation with Decentralized Truth</p>
+                <button id="loginButton" class="custom-btn">Login with Internet Identity</button>
+                <div id="login-status" class="status-message"></div>
+            </div>
+        </section>
+
+        <section id="app-view" style="display: none;">
+            <header class="app-header">
+                <h1 class="logo-title-small">ALETHEIA</h1>
+                <div id="principal-display"></div>
+            </header>
+
+            <div class="tabs">
+                <div class="glass-tab active" data-tab="profile">My Profile</div>
+                <div class="glass-tab" data-tab="submit">Submit Claim</div>
+                <div class="glass-tab" data-tab="history">My History</div>
+            </div>
+
+            <div class="tab-content">
+                <div id="profile-content" class="content-pane active">
+                    <h2>User Profile</h2>
+                    <div class="profile-details">
+                        <p><strong>Username:</strong> <span id="profile-username"></span></p>
+                        <div class="username-form">
+                            <input type="text" id="username-input" placeholder="Enter a new username">
+                            <button id="updateUsernameButton" class="custom-btn-small">Update</button>
+                        </div>
+                        <p><strong>Registered:</strong> <span id="profile-registeredAt"></span></p>
+                        <p><strong>Claims Submitted:</strong> <span id="profile-claimsCount"></span></p>
+                    </div>
+                    <div id="profile-status" class="status-message"></div>
+                </div>
+
+                <div id="submit-content" class="content-pane">
+                    <h2>Submit a Claim for Verification</h2>
+                    <p>This feature will be handled by the ClaimSubmissionCanister.</p>
+                    <form id="claim-form">
+                        <textarea placeholder="Enter the claim you want to verify..."></textarea>
+                        <button type="submit" class="custom-btn">Submit for Verification</button>
+                    </form>
+                </div>
+
+                <div id="history-content" class="content-pane">
+                    <h2>My Claim History</h2>
+                    <p>Your history of submitted claims will appear here.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

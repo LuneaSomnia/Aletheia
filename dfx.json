@@ -1,0 +1,45 @@
+{
+  "canisters": {
+    "user_account_backend": {
+      "type": "motoko",
+      "main": "src/user_account_backend/main.mo"
+    },
+    "user_account_frontend": {
+      "type": "assets",
+      "source": [
+        "src/user_account_frontend/"
+      ],
+      "dependencies": [
+        "user_account_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/user_account_frontend/index.html"
+      },
+       "build": {
+        "packtool": "npm",
+        "args": ""
+      }
+    },
+    "aletheian_profile_backend": {
+      "type": "motoko",
+      "main": "src/aletheian_profile_backend/main.mo"
+    },
+    "fact_ledger_backend": {
+      "type": "motoko",
+      "main": "src/fact_ledger_backend/main.mo"
+    },
+    "claim_submission_backend": {
+      "type": "motoko",
+      "main": "src/claim_submission_backend/main.mo"
+    },
+    "aletheian_dispatch_backend": {
+      "type": "motoko",
+      "main": "src/aletheian_dispatch_backend/main.mo"
+    },
+    "verification_workflow_backend": {
+      "type": "motoko",
+      "main": "src/verification_workflow_backend/main.mo"
+    }
+  },
+  "version": 1
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aletheia - Submit a Claim</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <div class="background-overlay"></div>
+    <div class="icon-layer">
+    </div>
+
+    <main class="container">
+        <header class="app-header">
+            <h1 class="logo-title-small">ALETHEIA</h1>
+        </header>
+
+        <section class="submission-form">
+            <h2>Submit a Claim for Verification</h2>
+            <p>Select the type of claim and provide the details below. Your submission will be sent to Aletheians for
+                review.</p>
+
+            <form id="claim-form">
+                <div class="form-group">
+                    <label for="claim-type">Claim Type</label>
+                    <select id="claim-type" name="claim-type">
+                        <option value="Text">Text-based Claim</option>
+                        <option value="Image">Image / Photograph</option>
+                        <option value="Video">Video</option>
+                        <option value="Audio">Audio Clip</option>
+                        <option value="Article">Article / Website URL</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="claim-text">Claim</label>
+                    <textarea id="claim-text" rows="5" placeholder="Enter the claim text here. If it's an image or video, describe it briefly."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="claim-source">Source (Optional)</label>
+                    <input type="text" id="claim-source" placeholder="e.g., URL of the article, name of the social media page...">
+                </div>
+
+                <div class="form-group">
+                    <label for="claim-context">Context (Optional)</label>
+                    <textarea id="claim-context" rows="3" placeholder="Why are you questioning this claim? Where did you see it?"></textarea>
+                </div>
+
+                <button type="submit" id="submitButton" class="custom-btn">Submit Claim</button>
+            </form>
+
+            <div id="form-status" class="status-message"></div>
+        </section>
+    </main>
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

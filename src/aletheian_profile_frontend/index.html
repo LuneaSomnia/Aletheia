@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aletheia - Aletheian Dashboard</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <div class="background-overlay"></div>
+    <div class="icon-layer">
+        <div class="bg-icon torch"></div>
+        <div class="bg-icon scales"></div>
+        <div class="bg-icon magnifying-glass"></div>
+        <div class="bg-icon computer"></div>
+    </div>
+
+    <main class="container">
+        <section id="login-view">
+            <div class="login-box">
+                <h1 class="logo-title">ALETHEIA</h1>
+                <p class="tagline">Aletheian Portal</p>
+                <button id="loginButton" class="custom-btn">Login with Internet Identity</button>
+                <div id="login-status" class="status-message"></div>
+            </div>
+        </section>
+
+        <section id="app-view" style="display: none;">
+            <header class="app-header">
+                <h1 class="logo-title-small">ALETHEIA</h1>
+                <div id="aletheian-info">
+                    <span id="header-username"></span>
+                    <span id="header-principal"></span>
+                </div>
+            </header>
+
+            <div class="tabs">
+                <div class="glass-tab active" data-tab="dashboard">Dashboard</div>
+                <div class="glass-tab" data-tab="claims">Pending Claims</div>
+                <div class="glass-tab" data-tab="profile">My Profile</div>
+            </div>
+
+            <div class="tab-content">
+                <div id="dashboard-content" class="content-pane active">
+                    <h2>Welcome, <span class="dashboard-username"></span></h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Rank</h3>
+                            <p id="stat-rank">Trainee</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Reputation (XP)</h3>
+                            <p id="stat-xp">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Expertise Badges</h3>
+                            <div id="stat-badges" class="badges-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="claims-content" class="content-pane">
+                    <h2>Pending Claims Queue</h2>
+                    <p>This feature will be powered by the AletheianDispatchCanister.</p>
+                    <div class="claim-card">
+                        <p><strong>Claim:</strong> "Claim text about a current event..."</p>
+                        <span><strong>Type:</strong> Text</span> | <span><strong>Priority:</strong> High</span>
+                        <button class="custom-btn-small">Accept Task</button>
+                    </div>
+                </div>
+
+                <div id="profile-content" class="content-pane">
+                    <h2>Performance Statistics</h2>
+                    <div class="profile-details">
+                        <p><strong>Total Claims Verified:</strong> <span id="stat-total-claims">0</span></p>
+                        <p><strong>Correct Verifications:</strong> <span id="stat-correct-claims">0</span></p>
+                        <p><strong>Accuracy Rate:</strong> <span id="stat-accuracy">N/A</span></p>
+                        <p><strong>Warnings Received:</strong> <span id="stat-warnings">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

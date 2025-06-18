@@ -1,0 +1,271 @@
+/* main.css */
+
+/* Define Color Palette and Fonts */
+:root {
+    --gold: #D4AF37;
+    --dark-red: #8B0000;
+    --bright-red: #c00d0d;
+    --cream: #FFFDD0;
+    --dark-background: #1a1a1a;
+    --glass-background: rgba(212, 175, 55, 0.1);
+    --glass-border: rgba(212, 175, 55, 0.3);
+
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --sans-serif-font: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --serif-font: 'Georgia', 'Times New Roman', serif;
+}
+
+/* Base Body Styling */
+body {
+    margin: 0;
+    background-color: var(--dark-background);
+    color: var(--cream);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Luxurious background texture and icon layer */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.4) 0%, rgba(26, 26, 26, 0.9) 70%),
+        linear-gradient(45deg, #1a1a1a 0%, #330a0a 100%);
+    background-blend-mode: screen;
+    z-index: -2;
+}
+
+.icon-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* --- EMBEDDED SVG ICONS --- */
+.bg-icon {
+    position: absolute;
+    opacity: 0.05;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: float 20s infinite ease-in-out alternate;
+}
+
+.torch {
+    width: 15vw;
+    height: 15vw;
+    top: 10%;
+    left: 5%;
+    animation-duration: 25s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23D4AF37' d='M13.5 2c-3.15 3.15-3.15 8.85 0 12 .5-.5 1-1.05 1.4-1.65.31-.48.64-1 .98-1.54C16.89 9.3 17 7.78 17 6.5c0-1.8-1.2-3.6-2.6-5.05.17-.01.33-.05.5-.05c.83 0 1.5.67 1.5 1.5c0 .48-.23.9-.55 1.25-.33.35-.45.85-.45 1.35s.23.9.55 1.25c.33.35.45.85.45 1.35s-.23.9-.55 1.25l-.25.25c-1.1-1.55-1.1-3.45 0-5l.2-.2c.07-.07.1-.13.2-.25.4-.5.4-1.1.2-1.6-.2-.6-.9-1-1.6-1zM9.08 14.5c.59 1.57 1.38 3.06 2.42 4.5H11c-2.28-2.28-2.28-6.72 0-9 .56.56 1.12 1.12 1.68 1.68c.36.36.72.72 1.08 1.08l.24.24c.36.36.72.72 1.08 1.08c1.36 1.36 2.72 2.72 4.08 4.08V19c-1.44-1.1-2.93-1.9-4.5-2.42c-1.65-.55-3.3-.83-5-1.08zM4 20h2v-2c0-1.1.9-2 2-2h4v-2H8c-2.2 0-4 1.8-4 4v2z'/%3E%3C/svg%3E");
+}
+
+.scales {
+    width: 20vw;
+    height: 20vw;
+    top: 50%;
+    left: 80%;
+    animation-duration: 30s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23D4AF37' d='M12 2L4.5 5h15L12 2zm-1 2h2v16h-2V4zM4.7 6.1L4 6.5l.3.4C5.5 8.1 6 9.5 6 11c0 1.9-1.1 3.5-2.6 4.3l-.3.2.1.4c.5 1.8 2.2 3.1 4.2 3.1s3.7-1.3 4.2-3.1l.1-.4-.3-.2C10.1 14.5 9 12.9 9 11c0-1.5.5-2.9 1.7-4.1L11 6.5l-.7-.4C8.9 5.3 7 5.1 4.7 6.1zm14.6 0c-2.3-1-4.2-.8-5.6.1l-.7.4.3.4c1.2 1.2 1.7 2.6 1.7 4.1 0 1.9-1.1 3.5-2.6 4.3l-.3.2.1.4c.5 1.8 2.2 3.1 4.2 3.1s3.7-1.3 4.2-3.1l.1-.4-.3-.2C18.1 14.5 17 12.9 17 11c0-1.5.5-2.9 1.7-4.1l.3-.4-.7-.4zM4 12c0-1.1.4-2.1 1.2-2.8C5.6 9 6 10 6 11s-.4 2-.8 2.2C4.4 12.8 4 12.4 4 12zm16 0c0 .4-.4.8-1.2.2-.4-.2-.8-1.2-.8-2.2s.4-2 .8-2.2C19.6 9.9 20 10.9 20 12z'/%3E%3C/svg%3E");
+}
+
+.magnifying-glass {
+    width: 12vw;
+    height: 12vw;
+    top: 70%;
+    left: 15%;
+    animation-duration: 22s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23D4AF37' d='M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c0-3.6-2.9-6.5-6.5-6.5S3 4.89 3 8.5 5.9 15 9.5 15c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
+}
+
+.computer {
+    width: 18vw;
+    height: 18vw;
+    top: 20%;
+    left: 70%;
+    animation-duration: 28s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23D4AF37' d='M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z'/%3E%3C/svg%3E");
+}
+
+
+@keyframes float {
+    from {
+        transform: translateY(-10px) rotate(-5deg);
+    }
+
+    to {
+        transform: translateY(10px) rotate(5deg);
+    }
+}
+
+/* The rest of the CSS (layout, buttons, tabs, etc.) is IDENTICAL to the previous response */
+/* Main Container and Views */
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 2rem;
+    z-index: 1;
+}
+
+#login-view {
+    text-align: center;
+}
+
+/* Typography */
+.logo-title {
+    font-family: var(--serif-font);
+    font-size: 4rem;
+    color: var(--gold);
+    letter-spacing: 0.2rem;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.logo-title-small {
+    font-family: var(--serif-font);
+    font-size: 1.5rem;
+    color: var(--gold);
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: var(--cream);
+    opacity: 0.8;
+    margin-bottom: 3rem;
+}
+
+h2 {
+    color: var(--gold);
+    font-family: var(--serif-font);
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 0.5rem;
+}
+
+/* Custom Button Styling */
+.custom-btn,
+.custom-btn-small {
+    background: linear-gradient(180deg, var(--bright-red), var(--dark-red));
+    border: 2px solid var(--gold);
+    color: var(--cream);
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 2px 2px rgba(255, 255, 255, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.custom-btn:hover {
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4), inset 0 2px 2px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    border-color: #ffde7a;
+}
+
+.custom-btn-small {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Glassmorphism Tabs */
+.tabs {
+    display: flex;
+    margin: 2rem 0;
+}
+
+.glass-tab {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px 10px 0 0;
+    transition: background 0.3s ease;
+    border-bottom: none;
+}
+
+.glass-tab:hover {
+    background: rgba(212, 175, 55, 0.2);
+}
+
+.glass-tab.active {
+    background: rgba(212, 175, 55, 0.25);
+    border-color: var(--gold);
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* Tab Content */
+.content-pane {
+    display: none;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 0 10px 10px 10px;
+}
+
+.content-pane.active {
+    display: block;
+}
+
+/* Forms */
+input,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: 5px;
+    color: var(--cream);
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.username-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.username-form input {
+    margin-bottom: 0;
+}
+
+/* Other UI Elements */
+#principal-display {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-family: monospace;
+    word-break: break-all;
+    border: 1px solid var(--glass-border);
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    min-height: 1.2rem;
+}
