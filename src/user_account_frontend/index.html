@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aletheia - User Dashboard</title>
-    <link rel="stylesheet" href="/css/main.css">
+    <title>Aletheia</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
-
 <body>
     <div class="background-overlay"></div>
     <div class="icon-layer">
@@ -17,60 +15,132 @@
         <div class="bg-icon computer"></div>
     </div>
 
-    <main class="container">
-        <section id="login-view">
-            <div class="login-box">
-                <h1 class="logo-title">ALETHEIA</h1>
-                <p class="tagline">Debunking Misinformation with Decentralized Truth</p>
-                <button id="loginButton" class="custom-btn">Login with Internet Identity</button>
-                <div id="login-status" class="status-message"></div>
+    <main id="master-login-view" class="view-container">
+        <div class="login-box">
+            <h1 class="logo-title">ALETHEIA</h1>
+            <p class="tagline">Debunking Misinformation with Decentralized Truth</p>
+            <div class="role-selection">
+                <p>Please select your role to continue:</p>
+                <button id="login-user-button" class="custom-btn">User Portal</button>
+                <button id="login-aletheian-button" class="custom-btn">Aletheian Portal</button>
             </div>
-        </section>
-
-        <section id="app-view" style="display: none;">
-            <header class="app-header">
-                <h1 class="logo-title-small">ALETHEIA</h1>
-                <div id="principal-display"></div>
-            </header>
-
-            <div class="tabs">
-                <div class="glass-tab active" data-tab="profile">My Profile</div>
-                <div class="glass-tab" data-tab="submit">Submit Claim</div>
-                <div class="glass-tab" data-tab="history">My History</div>
-            </div>
-
-            <div class="tab-content">
-                <div id="profile-content" class="content-pane active">
-                    <h2>User Profile</h2>
-                    <div class="profile-details">
-                        <p><strong>Username:</strong> <span id="profile-username"></span></p>
-                        <div class="username-form">
-                            <input type="text" id="username-input" placeholder="Enter a new username">
-                            <button id="updateUsernameButton" class="custom-btn-small">Update</button>
-                        </div>
-                        <p><strong>Registered:</strong> <span id="profile-registeredAt"></span></p>
-                        <p><strong>Claims Submitted:</strong> <span id="profile-claimsCount"></span></p>
-                    </div>
-                    <div id="profile-status" class="status-message"></div>
-                </div>
-
-                <div id="submit-content" class="content-pane">
-                    <h2>Submit a Claim for Verification</h2>
-                    <p>This feature will be handled by the ClaimSubmissionCanister.</p>
-                    <form id="claim-form">
-                        <textarea placeholder="Enter the claim you want to verify..."></textarea>
-                        <button type="submit" class="custom-btn">Submit for Verification</button>
-                    </form>
-                </div>
-
-                <div id="history-content" class="content-pane">
-                    <h2>My Claim History</h2>
-                    <p>Your history of submitted claims will appear here.</p>
-                </div>
-            </div>
-        </section>
+            <div id="login-status" class="status-message"></div>
+        </div>
     </main>
-    <script type="module" src="/js/main.js"></script>
-</body>
 
+    <main id="user-app-view" class="view-container theme-user" hidden>
+        <header class="app-header">
+            <h1 class="logo-title-small">ALETHEIA</h1>
+            <div id="user-principal-display"></div>
+        </header>
+        <div class="tabs">
+            <div class="glass-tab active" data-tab="profile">My Profile</div>
+            <div class="glass-tab" data-tab="submit">Submit Claim</div>
+            <div class="glass-tab" data-tab="history">My History</div>
+        </div>
+        <div class="tab-content">
+            <div id="profile-content" class="content-pane active">
+                 <h2>User Profile</h2>
+                 <div class="profile-details">
+                     <p><strong>Username:</strong> <span id="profile-username"></span></p>
+                     <div class="username-form">
+                         <input type="text" id="username-input" placeholder="Enter a new username">
+                         <button id="updateUsernameButton" class="custom-btn-small">Update</button>
+                     </div>
+                     <p><strong>Registered:</strong> <span id="profile-registeredAt"></span></p>
+                     <p><strong>Claims Submitted:</strong> <span id="profile-claimsCount"></span></p>
+                 </div>
+                 <div id="profile-status" class="status-message"></div>
+            </div>
+            <div id="submit-content" class="content-pane">
+                 <h2>Submit a Claim for Verification</h2>
+                 <p>Select the type of claim and provide the details below. Your submission will be sent to Aletheians for review.</p>
+                 <form id="claim-form">
+                     <div class="form-group">
+                         <label for="claim-type">Claim Type</label>
+                         <select id="claim-type" name="claim-type">
+                             <option value="Text">Text-based Claim</option>
+                             <option value="Image">Image / Photograph</option>
+                             <option value="Video">Video</option>
+                             <option value="Audio">Audio Clip</option>
+                             <option value="Article">Article / Website URL</option>
+                         </select>
+                     </div>
+                     <div class="form-group">
+                         <label for="claim-text">Claim</label>
+                         <textarea id="claim-text" rows="5" placeholder="Enter the claim text here..."></textarea>
+                     </div>
+                     <div class="form-group">
+                         <label for="claim-source">Source (Optional)</label>
+                         <input type="text" id="claim-source" placeholder="e.g., URL of the article...">
+                     </div>
+                     <div class="form-group">
+                         <label for="claim-context">Context (Optional)</label>
+                         <textarea id="claim-context" rows="3" placeholder="Why are you questioning this claim?"></textarea>
+                     </div>
+                     <button type="submit" id="submitButton" class="custom-btn">Submit for Verification</button>
+                 </form>
+                 <div id="form-status" class="status-message"></div>
+            </div>
+            <div id="history-content" class="content-pane">
+                 <h2>My Claim History</h2>
+                 <p>Your history of submitted claims will appear here.</p>
+            </div>
+        </div>
+    </main>
+
+    <main id="aletheian-app-view" class="view-container theme-aletheian" hidden>
+        <header class="app-header">
+            <h1 class="logo-title-small">ALETHEIA</h1>
+            <div id="aletheian-info">
+                <span id="header-username"></span>
+                <span id="header-principal"></span>
+            </div>
+        </header>
+        <div class="tabs">
+            <div class="glass-tab active" data-tab="dashboard">Dashboard</div>
+            <div class="glass-tab" data-tab="claims">Pending Claims</div>
+            <div class="glass-tab" data-tab="profile-aletheian">My Profile</div>
+        </div>
+        <div class="tab-content">
+            <div id="dashboard-content" class="content-pane active">
+                <h2>Welcome, <span class="dashboard-username"></span></h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Rank</h3>
+                        <p id="stat-rank">Trainee</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Reputation (XP)</h3>
+                        <p id="stat-xp">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Expertise Badges</h3>
+                        <div id="stat-badges" class="badges-container"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="claims-content" class="content-pane">
+                <h2>Pending Claims Queue</h2>
+                <p>This feature will be powered by the AletheianDispatchCanister.</p>
+                <div class="claim-card">
+                    <p><strong>Claim:</strong> "Claim text about a current event..."</p>
+                    <span><strong>Type:</strong> Text</span> | <span><strong>Priority:</strong> High</span>
+                    <button class="custom-btn-small">Accept Task</button>
+                </div>
+            </div>
+            <div id="profile-aletheian-content" class="content-pane">
+                <h2>Performance Statistics</h2>
+                 <div class="profile-details">
+                    <p><strong>Total Claims Verified:</strong> <span id="stat-total-claims">0</span></p>
+                    <p><strong>Correct Verifications:</strong> <span id="stat-correct-claims">0</span></p>
+                    <p><strong>Accuracy Rate:</strong> <span id="stat-accuracy">N/A</span></p>
+                    <p><strong>Warnings Received:</strong> <span id="stat-warnings">0</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
 </html>
